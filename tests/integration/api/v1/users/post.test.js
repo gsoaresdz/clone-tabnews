@@ -16,8 +16,8 @@ describe("POST /api/v1/users", () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: "filipedeschamps",
-          email: "contato@curso.dev",
+          username: "gsoaresdz",
+          email: "gabriel.souza@curso.dev",
           password: "senha123",
         }),
       });
@@ -28,8 +28,8 @@ describe("POST /api/v1/users", () => {
 
       expect(responseBody).toEqual({
         id: responseBody.id,
-        username: "filipedeschamps",
-        email: "contato@curso.dev",
+        username: "gsoaresdz",
+        email: "gabriel.souza@curso.dev",
         password: "senha123",
         created_at: responseBody.created_at,
         updated_at: responseBody.updated_at,
