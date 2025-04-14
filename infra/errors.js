@@ -3,7 +3,6 @@ export class InternalServerError extends Error {
     super("Um erro interno não esperado aconteceu.", {
       cause,
     });
-
     this.name = "InternalServerError";
     this.action = "Entre em contato com o suporte.";
     this.statusCode = statusCode || 500;
@@ -14,17 +13,16 @@ export class InternalServerError extends Error {
       name: this.name,
       message: this.message,
       action: this.action,
-      statusCode: this.statusCode,
+      status_code: this.statusCode,
     };
   }
 }
 
 export class ServiceError extends Error {
   constructor({ cause, message }) {
-    super(message || "Serviço indisponivel no momento.", {
+    super(message || "Serviço indisponível no momento.", {
       cause,
     });
-
     this.name = "ServiceError";
     this.action = "Verifique se o serviço está disponível.";
     this.statusCode = 503;
@@ -35,7 +33,7 @@ export class ServiceError extends Error {
       name: this.name,
       message: this.message,
       action: this.action,
-      statusCode: this.statusCode,
+      status_code: this.statusCode,
     };
   }
 }
@@ -67,8 +65,7 @@ export class NotFoundError extends Error {
     });
     this.name = "NotFoundError";
     this.action =
-      action ||
-      "Verifique se os parâmetros enviados na consulta estão corretos.";
+      action || "Verifique se os parâmetros enviados na consulta estão certos.";
     this.statusCode = 404;
   }
 
@@ -87,7 +84,7 @@ export class MethodNotAllowedError extends Error {
     super("Método não permitido para este endpoint.");
     this.name = "MethodNotAllowedError";
     this.action =
-      "Verifique se o método HTTP utilizado é suportado por este endpoint.";
+      "Verifique se o método HTTP enviado é válido para este endpoint.";
     this.statusCode = 405;
   }
 
@@ -96,7 +93,7 @@ export class MethodNotAllowedError extends Error {
       name: this.name,
       message: this.message,
       action: this.action,
-      statusCode: this.statusCode,
+      status_code: this.statusCode,
     };
   }
 }
